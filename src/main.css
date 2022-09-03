@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base application */
+#application{ @apply bg-default-fundo h-screen p-0; }
+
+#application main{ @apply p-4; }
+
+/** Header */
+header { @apply flex justify-between items-center p-4; }
+
+header #search-contacts{ @apply flex gap-1 items-center max-w-[64.5rem] bg-default-paleGrey p-2 rounded;}
+
+header #search-contacts,
+header #search-contacts input { @apply w-full; }
+
+header #search-contacts input {  @apply bg-transparent text-default-blueGrey focus:outline-none focus:shadow-none; }
+
+/* Lista de contatos */
+.list-contacts,
+.list-contacts table{ @apply w-full; }
+
+.list-contacts table tr{ @apply border rounded; }
+
+.list-contacts table thead tr { @apply rounded-t; }
+.list-contacts table tbody tr:last-child { @apply rounded-b; }
+
+.list-contacts table tbody tr:last-child td:first-child{ @apply rounded-bl; }
+.list-contacts table tbody tr:last-child td:last-child{ @apply rounded-br; }
+
+.list-contacts table thead tr th{ @apply pt-4 pb-4 pr-4 text-left bg-default-whiteTwo text-default-blueGrey font-normal text-[0.813rem]; }
+
+.list-contacts table thead tr th:first-child{ @apply rounded-tl; }
+.list-contacts table thead tr th:last-child{ @apply rounded-tr; }
+
+.list-contacts table thead tr th:first-child,
+.list-contacts table tbody tr td:first-child{ @apply w-[3rem]; }
+
+.list-contacts table tbody tr td{ @apply p-2 bg-default-whiteTwo text-[0.875rem]; }
