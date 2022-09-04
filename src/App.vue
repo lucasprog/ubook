@@ -1,8 +1,8 @@
 <template>
   <div id="application">
-    <header-component />
-    <main>
-      <list-contacts-component />
+    <header-component ref="header" />
+    <main id="main-content">
+      <list-contacts-component ref="listContacts" />
     </main>
   </div>
 </template>
@@ -14,6 +14,7 @@
   export default {
     name: 'App',
     mounted(){
+      // console.log(this)
       // store.dispatch('clearAllContact');
       // store.dispatch('insertContact',{
       //   name : 'Carol',

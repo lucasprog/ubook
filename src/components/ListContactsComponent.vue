@@ -26,20 +26,96 @@
           <td>
             <span>{{contact.tel}}</span>
           </td>
-          <td></td>
+          <td>
+            <div class="flex gap-6">
+              <icon-component name="edit" class="cursor-pointer"/>
+              <icon-component name="delete" class="cursor-pointer"/>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
+    <dialog-component 
+      class="dialog-form"
+      ref="dialogFormRegister" 
+      :show="isShowFormRegister"
+      @handler="submitedFormRegister">
+      <template v-slot:title>
+        Criar contato
+      </template>
+      <template v-slot:content>
+        <div class="content-form">
+
+          <div class="item-form">
+            <label for="name">Nome</label>
+            <input type="text" name="name" v-model="formRegister.name" />
+          </div>
+          
+          <div class="item-form">
+            <label for="name">E-mail</label>
+            <input type="email" name="email" v-model="formRegister.email" />
+          </div>
+
+          <div class="item-form">
+            <label for="name">Telefone</label>
+            <input type="text" name="tel" v-model="formRegister.tel" v-mask="'(##) ####-####'" />
+          </div>
+                    
+        </div>
+      </template>
+      <template v-slot:footer>
+        <button type="button" class="btn-cancel" @click="closeDialog">Cancelar</button>
+        <button type="submit" class="btn-save" :disabled="disableSubmitForm">Salvar</button>
+      </template>
+    </dialog-component>
   </div>
 </template>
 <script>
   import store from '../vuex/store';
 
   export default {
+    data(){
+      return{
+        isShowFormRegister : false,
+        formRegister : {
+          name :'',
+          email: '',
+          tel : ''
+        }
+      }
+    },
     mounted(){},
     computed:{
       listContacts : function(){
         return store.getters.contacts;
+      },
+      disableSubmitForm : function(){
+        const form = this.formRegister;
+        return !Object.values(form).filter( item => item?true:false).length > 0;
+      }
+    },
+    methods:{
+      showFormRegister(){
+        this.isShowFormRegister = true;
+      },
+      submitedFormRegister(e){
+        console.log('e',e)
+        
+        let tel = this.formRegister.tel;
+            tel = tel.split('(').join('');
+            tel = tel.split(') ').join('');
+            tel = tel.split('-').join('');
+
+        const form = {
+          ...this.formRegister,
+          tel
+        }
+
+        store.dispatch('insertContact',form);
+        
+      },
+      closeDialog(){
+        this.isShowFormRegister = false;
       }
     }
   }

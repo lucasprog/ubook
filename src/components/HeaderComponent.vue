@@ -1,8 +1,9 @@
 <template>
-  <header>
+  <header id="header">
     <figure id="logo">
       <img src="../assets/imgs/ic-logo.svg" alt="Logotipo uBook"/>
     </figure>
+    <button @click="showFormRegister">Criar contato</button>
 
     <form 
       @submit="submitToSearch"
@@ -31,6 +32,7 @@
       }
     },
     mounted() {
+      console.log(this)
       this.search = store.getters.paramsSearch;
     },
     methods:{
@@ -38,7 +40,10 @@
         e.preventDefault();
         this.goToSearch();
       },
-      goToSearch(){ store.dispatch('searchContacts',this.search) }
+      goToSearch(){ store.dispatch('searchContacts',this.search) },
+      showFormRegister(){
+        this.$parent.$refs.listContacts.showFormRegister();
+      }
     }
   }
 </script>

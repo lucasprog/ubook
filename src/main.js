@@ -16,6 +16,7 @@ Vue.config.productionTip = false
 Vue.component('header-component',require('./components/HeaderComponent').default);
 Vue.component('list-contacts-component',require('./components/ListContactsComponent').default);
 Vue.component('icon-component',require('./components/IconsComponent').default);
+Vue.component('dialog-component',require('./components/DialogComponent').default);
 
 new Vue({
   store,

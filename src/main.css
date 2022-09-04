@@ -5,17 +5,17 @@
 /* Base application */
 #application{ @apply bg-default-fundo h-screen p-0; }
 
-#application main{ @apply p-4; }
+#application #main-content{ @apply p-4; }
 
 /** Header */
-header { @apply flex justify-between items-center p-4; }
+#header { @apply flex justify-between items-center p-4; }
 
-header #search-contacts{ @apply flex gap-1 items-center max-w-[64.5rem] bg-default-paleGrey p-2 rounded;}
+#header #search-contacts{ @apply flex gap-1 items-center max-w-[64.5rem] bg-default-paleGrey p-2 rounded;}
 
-header #search-contacts,
-header #search-contacts input { @apply w-full; }
+#header #search-contacts,
+#header #search-contacts input { @apply w-full; }
 
-header #search-contacts input {  @apply bg-transparent text-default-blueGrey focus:outline-none focus:shadow-none; }
+#header #search-contacts input {  @apply bg-transparent text-default-blueGrey focus:outline-none focus:shadow-none; }
 
 /* Lista de contatos */
 .list-contacts,
@@ -37,4 +37,43 @@ header #search-contacts input {  @apply bg-transparent text-default-blueGrey foc
 .list-contacts table thead tr th:first-child,
 .list-contacts table tbody tr td:first-child{ @apply w-[3rem]; }
 
+.list-contacts table tbody tr:hover td{ @apply bg-default-veryLightPink ; }
+
 .list-contacts table tbody tr td{ @apply p-2 bg-default-whiteTwo text-[0.875rem]; }
+
+/* Form Dialog  */
+.dialog-form .content-form{
+  @apply flex flex-col gap-4 pl-6 pr-6 pt-5 pb-5;
+}
+
+.dialog-form .content-form .item-form{
+  @apply flex flex-col;
+}
+
+.dialog-form .content-form .item-form label{
+  @apply text-[0.875rem] text-default-dark;
+}
+
+.dialog-form .content-form .item-form input{
+  @apply h-8 border border-default-blueGrey2 rounded p-2;
+}
+
+.dialog-form .content-form .item-form input[name="tel"]{
+  @apply max-w-[8rem];
+}
+
+.dialog-form .btn-cancel{
+  @apply text-default-red text-[0.875rem];
+}
+
+.dialog-form .btn-save{
+  @apply bg-default-red text-default-whiteTwo pl-4 pr-4 pt-2 pb-2 shadow-btnSave rounded-full text-[0.875rem];
+}
+
+.dialog-form .btn-save[disabled="disabled"]{
+  @apply opacity-[0.32];
+}
+
+.dialog-form footer {
+  @apply justify-end gap-4; 
+}
