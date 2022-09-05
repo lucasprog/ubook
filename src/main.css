@@ -23,18 +23,15 @@
 .list-contacts,
 .list-contacts table{ @apply w-full ; }
 
-.list-contacts table tr{ @apply border rounded; }
+.list-contacts table{ @apply border-0 ; }
 
-.list-contacts table thead tr { @apply rounded-t; }
-.list-contacts table tbody tr:last-child { @apply rounded-b; }
+.list-contacts{ @apply border border-default-white rounded overflow-hidden; }
 
-.list-contacts table tbody tr:last-child td:first-child{ @apply rounded-bl; }
-.list-contacts table tbody tr:last-child td:last-child{ @apply rounded-br; }
+.list-contacts table tr{ @apply border-b border-default-white; }
+
+.list-contacts table tbody tr:last-child { @apply border-0; } 
 
 .list-contacts table thead tr th{ @apply pt-4 pb-4 pr-4 text-left bg-default-whiteTwo text-default-blueGrey font-normal text-[0.813rem]; }
-
-.list-contacts table thead tr th:first-child{ @apply rounded-tl; }
-.list-contacts table thead tr th:last-child{ @apply rounded-tr; }
 
 .list-contacts table thead tr th:first-child,
 .list-contacts table tbody tr td:first-child{ @apply w-[3rem]; }
