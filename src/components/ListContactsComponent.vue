@@ -6,7 +6,7 @@
       class="without-contacts">
 
       <icon-component name="book" size="14.813rem"  />
-      <h6 class="title">Nenhum contato foi criado ainda.</h6>
+      <h6 class="title">{{ paramsSearch? 'Nenhum contato encontrado no momento!' : 'Nenhum contato foi criado ainda.'}}</h6>
       <button class="btn-create" @click="showForm">
         <icon-component name="plus" /> 
         Criar contato
@@ -139,6 +139,9 @@
       disableSubmitForm : function(){
         let form = this.getDataForm();
         return !Object.values(form).filter( item => item?true:false).length > 0;
+      },
+      paramsSearch : function(){
+        return store.getters.paramsSearch;
       }
     },
     watch : {
