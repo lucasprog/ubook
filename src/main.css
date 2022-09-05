@@ -10,6 +10,8 @@
 /** Header */
 #header { @apply flex justify-between items-center p-4 gap-4; }
 
+#header .btn-create{ @apply h-8; }
+
 #header #search-contacts{ @apply flex gap-1 items-center max-w-[64.5rem] bg-default-paleGrey p-2 rounded;}
 
 #header #search-contacts,

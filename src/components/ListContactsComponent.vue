@@ -171,7 +171,7 @@
         return onlyDatasForm;
       },
       showForm(){
-        console.log('chamou')
+        this.errorMessageForm = null;
         this.isShowForm = true;
       },
       showDelete(contact){
@@ -266,7 +266,7 @@
           }
         }
 
-        let findedContactByTel = this.listContacts.find( (cont) => cont.email === this.disMaskTel() );
+        let findedContactByTel = this.listContacts.find( (cont) => cont.tel === this.disMaskTel() );
 
         if( findedContactByTel )
         {
