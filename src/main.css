@@ -25,7 +25,7 @@
 
 .list-contacts table{ @apply border-0 ; }
 
-.list-contacts{ @apply border border-default-white rounded overflow-hidden; }
+.list-contacts.hasContact{ @apply border border-default-white rounded overflow-hidden; }
 
 .list-contacts table tr{ @apply border-b border-default-white; }
 

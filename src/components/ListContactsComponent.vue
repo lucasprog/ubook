@@ -1,5 +1,5 @@
 <template>
-  <div class="list-contacts">
+  <div class="list-contacts" :class="{'hasContact' : listContacts.length > 0}">
     <!-- Sem lista de contatos  -->
     <div 
       v-if="listContacts.length < 1"
