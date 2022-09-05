@@ -15,7 +15,7 @@
     name: 'App',
     mounted(){
       // console.log(this)
-      // store.dispatch('clearAllContact');
+      // store.dispatch('clearAllContacts');
       // store.dispatch('insertContact',{
       //   name : 'Carol',
       //   email :'carol@gmail.com',

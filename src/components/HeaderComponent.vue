@@ -3,7 +3,9 @@
     <figure id="logo">
       <img src="../assets/imgs/ic-logo.svg" alt="Logotipo uBook"/>
     </figure>
-    <button @click="showFormRegister">Criar contato</button>
+    <button v-if="contacts.length > 0" class="btn-create" @click="showFormRegister">
+      <icon-component name="plus" /> Criar contato 
+    </button>
 
     <form 
       @submit="submitToSearch"
@@ -32,8 +34,12 @@
       }
     },
     mounted() {
-      console.log(this)
       this.search = store.getters.paramsSearch;
+    },
+    computed:{
+      contacts : function(){
+        return store.getters.contacts;
+      }
     },
     methods:{
       submitToSearch(e){
@@ -42,7 +48,7 @@
       },
       goToSearch(){ store.dispatch('searchContacts',this.search) },
       showFormRegister(){
-        this.$parent.$refs.listContacts.showFormRegister();
+        this.$parent.$refs.listContacts.showForm();
       }
     }
   }

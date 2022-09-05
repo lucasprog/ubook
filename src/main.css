@@ -8,7 +8,7 @@
 #application #main-content{ @apply p-4; }
 
 /** Header */
-#header { @apply flex justify-between items-center p-4; }
+#header { @apply flex justify-between items-center p-4 gap-4; }
 
 #header #search-contacts{ @apply flex gap-1 items-center max-w-[64.5rem] bg-default-paleGrey p-2 rounded;}
 
@@ -19,7 +19,7 @@
 
 /* Lista de contatos */
 .list-contacts,
-.list-contacts table{ @apply w-full; }
+.list-contacts table{ @apply w-full ; }
 
 .list-contacts table tr{ @apply border rounded; }
 
@@ -37,43 +37,73 @@
 .list-contacts table thead tr th:first-child,
 .list-contacts table tbody tr td:first-child{ @apply w-[3rem]; }
 
-.list-contacts table tbody tr:hover td{ @apply bg-default-veryLightPink ; }
+.list-contacts table tbody tr.active td,
+.list-contacts table tbody tr:hover td{ @apply bg-default-veryLightPink transition duration-500 ease-in-out ; }
 
-.list-contacts table tbody tr td{ @apply p-2 bg-default-whiteTwo text-[0.875rem]; }
+.list-contacts table tbody tr td{ @apply p-2 bg-default-whiteTwo text-[0.875rem] transition duration-500 ease-in-out; }
 
-/* Form Dialog  */
-.dialog-form .content-form{
-  @apply flex flex-col gap-4 pl-6 pr-6 pt-5 pb-5;
+.brand-initial{
+  @apply flex items-center justify-center p-4 rounded-full w-[1.5rem] h-[1.5rem] text-white text-[1rem];
 }
 
-.dialog-form .content-form .item-form{
+/* Form Dialog  */
+.dialog .content{
+  @apply flex flex-col gap-4 pl-6 pr-6 pt-5 pb-5 min-h-[5.781rem];
+}
+
+.dialog .content .item-form{
   @apply flex flex-col;
 }
 
-.dialog-form .content-form .item-form label{
+.dialog .content p,
+.dialog .content .item-form label{
   @apply text-[0.875rem] text-default-dark;
 }
 
-.dialog-form .content-form .item-form input{
-  @apply h-8 border border-default-blueGrey2 rounded p-2;
+.dialog .content .item-form input{
+  @apply h-8 border border-default-blueGrey2 rounded p-2 text-[0.875rem] text-default-dark;
 }
 
-.dialog-form .content-form .item-form input[name="tel"]{
+.dialog .content .item-form input[name="tel"]{
   @apply max-w-[8rem];
 }
 
-.dialog-form .btn-cancel{
-  @apply text-default-red text-[0.875rem];
+.dialog .btn-cancel{
+  @apply text-default-red text-[0.875rem] flex items-center justify-center;
 }
 
-.dialog-form .btn-save{
-  @apply bg-default-red text-default-whiteTwo pl-4 pr-4 pt-2 pb-2 shadow-btnSave rounded-full text-[0.875rem];
+.dialog .btn-save{
+  @apply bg-default-red text-default-whiteTwo pl-4 pr-4 h-8 flex items-center justify-center shadow-btnSave rounded-full text-[0.875rem];
 }
 
-.dialog-form .btn-save[disabled="disabled"]{
+.dialog .btn-save[disabled="disabled"]{
   @apply opacity-[0.32];
 }
 
-.dialog-form footer {
+.dialog footer {
   @apply justify-end gap-4; 
 }
+
+/**
+ Alert Error
+ **/
+
+ .alert-error{
+  @apply bg-red-600 text-white p-2 rounded;
+ }
+
+ /**
+  Without Contacts
+  */
+
+  .without-contacts { @apply flex items-center justify-center flex-col gap-6 p-24;}
+  
+  .without-contacts .title{ @apply text-default-dark text-[1rem] text-center; }
+
+  /**
+   * Btn Create
+  */ 
+
+  .btn-create{
+    @apply bg-default-lightGreen text-default-red h-10 rounded-full pl-4 pr-4 flex items-center justify-center gap-2 text-[0.875rem] shadow-btnSave hover:opacity-80;
+  }

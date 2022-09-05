@@ -1,7 +1,7 @@
 <template>
   <div 
     v-show="isShowed" 
-    class="dialog-back">
+    class="dialog-back dialog">
     <div class="dialog-card">
       <form @submit="submitForm">
         <header> <slot name="title"></slot> </header>
